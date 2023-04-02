@@ -1,15 +1,16 @@
 from flask import Flask, jsonify, render_template
 import sqlalchemy as sql
 import json
-from flask_cors import cross_origin
+#from flask_cors import cross_origin
 
 app=Flask(__name__)
 
 
 engine=sql.create_engine('sqlite:///data/db.sqlite')
 
+
+#@cross_origin()
 @app.route('/data')
-@cross_origin()
 def return_data(): 
     results=engine.execute('select * from data').all()
     # Convert list of tuples to list of dictionaries

@@ -1,8 +1,8 @@
-d3.json('http://localhost:5000/data').then(function(data){
+d3.json('http://127.0.0.1:5000/data').then(function(data){
     console.log(data[0]);
     var myMap=L.map("map", {
-        center: [34.0522, -118.2437],
-        zoom: 5,
+        center: [45, 30],
+        zoom: 2,
     })
     var streetMap=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     streetMap.addTo(myMap);
@@ -13,6 +13,6 @@ d3.json('http://localhost:5000/data').then(function(data){
         console.log();
         let lat=data[i]['lat'];
         
-        L.Marker([lon,lat]).addTo(myMap);
+        L.marker([lon,lat]).addTo(myMap);
     };
 });
