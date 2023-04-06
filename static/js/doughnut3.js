@@ -120,6 +120,11 @@ d3.json('http://127.0.0.1:5000/data').then(function(data){
         var options = {
             title: 'Volcanic Type',
             pieHole: 0.4,
+            backgroundColor: '#f3e1cd',
+            titleTextStyle: {
+                fontSize: 24,
+                textAlign: 'center' 
+              }
             };
             
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));

@@ -78,8 +78,22 @@ let plate_names = ["Rift zone / Continental crust (>25 km)",
 let trace1 = {
     'x' : plate_names,
     'y' : plate_count,
-    type : "bar"
+    type : "bar",
+    marker: {
+        color: 'rgb(255, 166, 77)',
+        zindex: 10}
 };
+let layout = {
+    title: {
+        text:'<b>Tectonic Plates<b>',
+        font: {
+            family: "Times New Roman",
+            size: 24,
+            weight: 'bold'}
+      },
+    plot_bgcolor: '#f3e1cd', 
+    paper_bgcolor: '#f3e1cd'
+}
 let data_bar_chart = [trace1];
-Plotly.newPlot("plot", data_bar_chart);
+Plotly.newPlot("plot", data_bar_chart, layout);
 })

@@ -4,10 +4,7 @@ d3.json('http://127.0.0.1:5000/data').then(function(data){
     var streetMap=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
     ;
     
-    var myMap=L.map("map", {
-        center: [45, 30],
-        zoom: 2,
-        layers: [streetMap]})
+    
     
         var foidite = [];
         var basalt_picroBasalt = [];
@@ -20,49 +17,51 @@ d3.json('http://127.0.0.1:5000/data').then(function(data){
         var rhyolite = [];
         var dacite = [];
         var unknown = [];
-        let vol_icon = L.icon({
-            iconUrl: '../data_resource/Volcano-Image.png',
-            iconSize: [38, 38]
-        });
+        var myIcon = L.icon({
+            iconUrl: 'http://127.0.0.1:5000/image', 
+            iconSize: [28.8, 33.6], // Size of the icon in pixels
+            iconAnchor: [16, 16], 
+            popupAnchor: [0, -16] 
+          });
         for (let i=0; i<data.length; i++){
             let name = data[i]['name']
             let type = data[i]['type']
             let elevation = data[i]['elevation']
-            let composition = data[i]['compoistion']
-            let marker_content = `<h2>Name: ${name}<h2><hr><h3>Type: ${type}<h3><hr><h3>Elevation: ${elevation}<h3><hr><h3>Composition: ${composition}<h3>`
+            let composition = data[i]['composition']
+            let marker_content = `<h2>Name: ${name}<h2><hr><h2>Type: ${type}<h2><hr><h2>Elevation: ${elevation}<h2>`
             switch (data[i]['composition']) {
                 case 'Foidite':
-                    foidite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    foidite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Basalt / Picro-Basalt':
-                    basalt_picroBasalt.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}));
+                    basalt_picroBasalt.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}));
                     break;
                 case 'Trachybasalt / Tephrite Basanite':
-                    trachybasalt_tephriteBasanite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    trachybasalt_tephriteBasanite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Trachyte / Trachydacite':
-                    trachyte_trachydacite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    trachyte_trachydacite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Phono-tephrite /  Tephri-phonolite':
-                    phonoTephrite_tephriPhonolite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    phonoTephrite_tephriPhonolite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Phonolite':
-                    phonolite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    phonolite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Trachyandesite / Basaltic Trachyandesite':
-                    Trachyandesite_basalticTrachyandesite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    Trachyandesite_basalticTrachyandesite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Andesite / Basaltic Andesite':
-                    andesite_basalticAndesite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    andesite_basalticAndesite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Rhyolite':
-                    rhyolite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    rhyolite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 case 'Dacite':
-                    dacite.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    dacite.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
                 default :
-                    unknown.push(L.marker([data[i]['lat'],data[i]['lon']], {icon : vol_icon}).bindPopup(marker_content));
+                    unknown.push(L.marker([data[i]['lat'],data[i]['lon']],{icon: myIcon}).bindPopup(marker_content));
                     break;
             }
         }
@@ -90,6 +89,11 @@ d3.json('http://127.0.0.1:5000/data').then(function(data){
             'Dacite': daciteLayer,
             'Unknown': unknownLayer
         };
+        var myMap=L.map("map", {
+            center: [45, 30],
+            zoom: 1,
+            maxZoom :3,
+            layers: [streetMap, trachybasalt_tephriteBasaniteLayer]})
         baseMap = {"street": streetMap}
         L.control.layers(baseMap, overlayMap).addTo(myMap);
     })

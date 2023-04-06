@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, send_file
 import sqlalchemy as sql
 import json
 #from flask_cors import cross_origin
@@ -20,6 +20,13 @@ def return_data():
     # Convert list of dictionaries to JSON format
     json_data = json.dumps(data_dict)
     return json_data
+
+@app.route('/image')
+def serve_image():
+    # Replace 'image.jpg' with the filename of your image
+    image_filename = 'image/image3.png'
+    return send_file(image_filename, mimetype='image/png')
+
 
 @app.route('/')
 def home(): 

@@ -2,7 +2,7 @@
 <html lang='en'>
 <head>
 	<meta charset="utf-8" />
-	<title>Project 3</title>
+	<title>Volcanoes Activity</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
@@ -12,22 +12,30 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
-  	
-    <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+    
+    <link rel="stylesheet" type="text/css" href="../static/css/font_c.css">
 </head>
 <body>
-    <div id='map' style="width: 1000px; height: 600px; padding: 0; margin: 0;"></div>
-    <div id = 'donutchart' style="width: 900px; height: 500px;"></div>
-    <div id = "pie"></div>
-    <div id='plot'></div>
+    <!--<section class="header">-->
+       
+        <div class="container"> 
+            <div class="header">
+                <h1>Exploring Volcanic Activity Across the Globe</h1>
+                <p><h3>Use the interactive charts below to explore the dataset</h3></p>
+            </div> 
+            <div id="image" src="http://127.0.0.1:5000/image"></div>  
+            <div id='map'></div>
+            <div id = 'donutchart' style="width: 800px; height: 600px; grid-column: 3 / 5; grid-row: 2;"></div>
+            <div id = "pie"><h2></h2></div>
+            <div id='plot'><h2></h2></div>
+        </div>
+    <!--</section>-->
     
-    
-    <div id = "#selDataset"></div>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type='text/javascript' src="../static/js/rock_layer.js"></script>
-    <script type='text/javascript' src="../static/js/bar.js"></script>
-	<script type='text/javascript' src="../static/js/donut.js"></script>
-    <script type='text/javascript' src="../static/js/elevations.js"></script>
+    <script type='text/javascript' src="../static/js/map_size.js"></script>
+    <script type='text/javascript' src="../static/js/bar_bold.js"></script>
+	<script type='text/javascript' src="../static/js/doughnut3.js"></script>
+    <script type='text/javascript' src="../static/js/pie_bolds.js"></script>
 </body>
 </html>
