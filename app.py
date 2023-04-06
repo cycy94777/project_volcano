@@ -21,11 +21,17 @@ def return_data():
     json_data = json.dumps(data_dict)
     return json_data
 
-@app.route('/image')
-def serve_image():
+@app.route('/icon')
+def serve_icon():
     # Replace 'image.jpg' with the filename of your image
     image_filename = 'image/image3.png'
     return send_file(image_filename, mimetype='image/png')
+
+@app.route('/image')
+def serve_image():
+    # Replace 'image.jpg' with the filename of your image
+    image_filename = 'image/image1.jpg'
+    return send_file(image_filename, mimetype='image/jpeg')
 
 
 @app.route('/')

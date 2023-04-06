@@ -13,7 +13,7 @@
     integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
     crossorigin=""/>
     
-    <link rel="stylesheet" type="text/css" href="../static/css/font_c.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/text_c.css">
 </head>
 <body>
     <!--<section class="header">-->
@@ -22,9 +22,17 @@
             <div class="header">
                 <h1>Exploring Volcanic Activity Across the Globe</h1>
                 <p><h3>Use the interactive charts below to explore the dataset</h3></p>
-            </div> 
-            <div id="image" src="http://127.0.0.1:5000/image"></div>  
-            <div id='map'></div>
+            </div>
+            <div class="image-container">
+                <img src="http://127.0.0.1:5000/image" class="background-image">
+                <div class="passage";>
+                    <p style='margin-top: 2%'><b>The Global Volcano project</b>,<br style='margin-top: 3px;'> a product of the Smithsonian Institution, dedicates itself to “document, disseminate, and understand” volcanic activity around the world. Over the years, they have compiled and maintained a list of all documented activities within a database. 
+                        The dataset contains over 1300 volcanoes with properties that include
+                        geographical location, primary volcano type, last known eruption time, elevation, dominant rock type, and tectonic setting.
+                    </p>
+                </div>
+            </div>
+            <div id='map' ></div>
             <div id = 'donutchart' style="width: 800px; height: 600px; grid-column: 3 / 5; grid-row: 2;"></div>
             <div id = "pie"><h2></h2></div>
             <div id='plot'><h2></h2></div>
@@ -33,7 +41,7 @@
     
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type='text/javascript' src="../static/js/map_size.js"></script>
+    <script type='text/javascript' src="../static/js/map_icon.js"></script>
     <script type='text/javascript' src="../static/js/bar_bold.js"></script>
 	<script type='text/javascript' src="../static/js/doughnut3.js"></script>
     <script type='text/javascript' src="../static/js/pie_bolds.js"></script>

@@ -18,7 +18,7 @@ d3.json('http://127.0.0.1:5000/data').then(function(data){
         var dacite = [];
         var unknown = [];
         var myIcon = L.icon({
-            iconUrl: 'http://127.0.0.1:5000/image', 
+            iconUrl: 'http://127.0.0.1:5000/icon', 
             iconSize: [28.8, 33.6], // Size of the icon in pixels
             iconAnchor: [16, 16], 
             popupAnchor: [0, -16] 
