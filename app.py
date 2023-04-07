@@ -24,7 +24,7 @@ def return_data():
 @app.route('/icon')
 def serve_icon():
     # Replace 'image.jpg' with the filename of your image
-    image_filename = 'image/image3.png'
+    image_filename = 'image/image1.png'
     return send_file(image_filename, mimetype='image/png')
 
 @app.route('/image')
